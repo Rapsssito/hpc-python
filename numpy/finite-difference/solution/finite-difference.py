@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from os import path
 
 # Construct xi
 dx = 0.10
@@ -18,4 +19,4 @@ plt.plot(xi[1:-1], dfi, label="sin'")
 plt.plot(xi[1:-1], f_ref, label="cos")
 plt.legend()
 plt.show()
-
+plt.savefig(path.join(path.dirname(__file__), 'result.png'))
