@@ -46,7 +46,7 @@ if __name__ == '__main__':
                         help='number of time steps')
     parser.add_argument('-i', type=int, default=4000,
                         help='image interval')
-    parser.add_argument('-f', type=str, default='bottle.dat', 
+    parser.add_argument('-f', type=str, default='bottle_large.dat', 
                         help='input file')
 
     args = parser.parse_args()
