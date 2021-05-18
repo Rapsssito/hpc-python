@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from evolve_mod import evolve as evolve_mod
 
 # Set the colormap
 plt.rcParams['image.cmap'] = 'BrBG'
@@ -32,10 +33,11 @@ def iterate(field, field0, a, dx, dy, timesteps, image_interval):
 
     # For stability, this is the largest interval possible
     # for the size of the time-step:
-    dt = dx2*dy2 / ( 2*a*(dx2+dy2) )    
+    dt = dx2*dy2 / ( 2*a*(dx2+dy2) )
 
     for m in range(1, timesteps+1):
-        evolve(field, field0, a, dt, dx2, dy2)
+        # evolve(field, field0, a, dt, dx2, dy2)
+        evolve_mod(field, field0, a, dt, dx2, dy2)
         if m % image_interval == 0:
             write_field(field, m)
 
