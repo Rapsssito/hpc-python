@@ -1,11 +1,13 @@
 from __future__ import print_function
 import numpy as np
 import time
-# TODO: initialise MPI by importing it
-
+from mpi4py import MPI
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
+# mpirun -np 4 python3 skeleton.py
+
 
 # Set the colormap
 plt.rcParams['image.cmap'] = 'BrBG'
@@ -26,7 +28,9 @@ dy2 = dy**2
 dt = dx2*dy2 / ( 2*a*(dx2+dy2) )
 
 # MPI globals
-# TODO: find out your rank and communicator size
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
 
 # Up/down neighbouring MPI ranks
 up = rank - 1
